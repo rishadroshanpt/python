@@ -99,13 +99,22 @@
 0  1  2
 2  1  0
 '''
-for i in range(3):
-        for j in range(3):
-            print((i+j)**2,end="  ")
-        print()
+# for i in range(3):
+#         for j in range(3):
+#             print((i+j)**2,end="  ")
+#         print()
 
 '''
 0  1  4  
 1  4  9
 4  9  16
 '''
+
+k=10
+for i in range(5):
+    for j in range(k):
+        print(end="  ")
+    k-=2
+    for j in range(i+1):
+            print('*',end="      ")
+    print()
