@@ -1,3 +1,4 @@
+import datetime
 employee=[]
 while True:
     print(
@@ -61,6 +62,43 @@ while True:
                         break
                     else:
                         print('Invalid choice !')
+        if f==0:
+            print('Employee not found in list')
+    elif ch==4:
+        id=int(input('Enter ID of the employee that you want to delete : '))
+        f=0
+        for i in employee:
+            if id in i:
+                f=1
+                employee.remove(i)
+        if f==0:
+            print('Employee not found in list')
+    elif ch==5:
+        id=int(input('Enter ID of the employee that you want to add task : '))
+        f=0
+        for i in employee:
+            if id in i:
+                f=1
+                task=input('Enter task : ')
+                date=datetime.datetime.now().strftime("%x")
+                days=int(input('How many days :'))
+                i.append([task,date,days])
+        if f==0:
+            print('Employee not found in list')
+    elif ch==6:
+        id=int(input('Enter ID of the employee that you want to search : '))
+        f=0
+        for i in employee:
+            if id in i:
+                f=1
+                print('{:<10}{:<20}{:<5}{:<20}{:<10}{:<15}{:<20}'.format('ID','NAME','AGE','POSITION','SALARY','MOBILE','PLACE'))
+                print('-'*100)
+                print('{:<10}{:<20}{:<5}{:<20}{:<10}{:<15}{:<20}'.format(i[0],i[1],i[2],i[3],i[4],i[5],i[6]))
+                print('---- Work details ----')
+                if len(i)==8:
+                    print(i[7])
+                else:
+                    print('No task available')
         if f==0:
             print('Employee not found in list')
     elif ch==7:

@@ -26,6 +26,10 @@
 # print(a.rstrip())
 
 
-print('{:<10}{:<10}{:<10}'.format('Name','Age','Mark'))
-print('{:<10}{:<10}{:<10}'.format('Anu','20','46'))
-print('{:<10}{:<10}{:<10}'.format('Abu','21','48'))
+# print('{:<10}{:<10}{:<10}'.format('Name','Age','Mark'))
+# print('{:<10}{:<10}{:<10}'.format('Anu','20','46'))
+# print('{:<10}{:<10}{:<10}'.format('Abu','21','48'))
+
+'''  reverse of string'''
+a='welcome'
+print(a[::-1])
