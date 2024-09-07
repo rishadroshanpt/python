@@ -54,5 +54,8 @@ s1={1,3,4}
 '''                 True                     '''
 # print(s.issuperset(s1))
 '''                 True                     '''
-print(s.symmetric_difference(s1))
+# print(s.symmetric_difference(s1))
 '''                 {2, 5}                  '''
+s.update({11,12,13})
+print(s)
+
