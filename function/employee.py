@@ -5,6 +5,11 @@ def login():
     f=0
     if uname=='admin' and passwd=='admin':
         f=1
+    for i in emp:
+        if uname.isdigit():
+            uname=int(uname)
+            if uname==i['id'] and passwd==i['dob']:
+                f=2
     return f
 def add_emp():
     id=int(input('Enter id : '))
@@ -74,6 +79,8 @@ while True:
                     break
                 else:
                     print('Invalid choice !')
+        elif f==2:
+            print('User login.')
         elif f==0:
             print('incorrect password or username !')
     elif ch==2:
