@@ -89,6 +89,28 @@ def view_users():
     print('-'*55)
     for i in users:
         print('{:<5}{:<10}{:<15}{:<15}{:<10}'.format(i['id'],i['name'],i['email'],i['username'],i['phone']))
+def update_profile():
+    while True:
+        print('''
+1.Update email
+2.Update username
+3.Update phone number
+4.Exit
+''')
+        ch=int(input('Enter your choice : '))
+        if ch==1:
+            new_email=input('Enter your new email : ')
+            user['email']=new_email
+        elif ch==2:
+            new_username=input('Enter your new username : ')
+            user['username']=new_username
+        elif ch==3:
+            new_phone=int(input('Enter new phone number : '))
+            user['phone']=new_phone
+        elif ch==4:
+            break
+        else:
+            print('Invalid choice !')
 users=[]
 lib=[]
 while True:
@@ -104,6 +126,7 @@ while True:
         if f==0:
             print('Incorrect password or username !')
         elif f==1:
+            print('Admin login !')
             while True:
                 print('''
 1.Add book
@@ -111,7 +134,7 @@ while True:
 3.Update Book
 4.Delete
 5.View Users
-6.Exit
+6.Logout
 ''')
                 sub_ch=int(input('Enter your choice : '))
                 if sub_ch==1:
@@ -126,11 +149,28 @@ while True:
                     view_users()
                 elif sub_ch==6:
                     break
+                else:
+                    print('Invalid choice !')
         elif f==2:
             print('User login !')
-            print('{:<5}{:<10}{:<15}{:<15}{:<10}'.format('ID','NAME',"EMAIL",'USERNAME','PHONE'))
-            print('-'*70)
-            print('{:<5}{:<10}{:<15}{:<15}{:<10}'.format(user['id'],user['name'],user['email'],user['username'],user['phone']))
+            while True:
+                print('''
+1.View Book
+2.Update profile
+3.Lent/Rent
+4.Logout
+''')
+                ch=int(input('Enter your choice : '))
+                if ch==1:
+                    view_book()
+                elif ch==2:
+                    update_profile()
+                elif ch==4:
+                    break
+                else:
+                    print('Invalid choice !')
     elif ch==3:
         break
+    else:
+        print('Invalid choice !')
     
