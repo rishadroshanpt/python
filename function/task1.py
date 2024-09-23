@@ -16,7 +16,8 @@ def register():
         username=email
         phone=int(input('enter your number : '))
         password=input('enter the password : ')
-        users.append({'id':id,'name':name,'email':email,'username':username,'phone':phone,'password':password})
+        book=[]
+        users.append({'id':id,'name':name,'email':email,'username':username,'phone':phone,'password':password,'books':book})
 def login():
     uname=input('Enter Username : ')
     passwd=input('Enter password : ')
@@ -111,6 +112,39 @@ def update_profile():
             break
         else:
             print('Invalid choice !')
+def rent_a_book(user):
+    view_book()
+    id=int(input('Enter the id of the book that you want to rent : '))
+    f=0
+    for i in lib:
+        if i['b_id']==id:
+            f=1
+            user['books'].append(id)
+            i['b_stock']-=1
+            print('Book rented successfully .')
+    if f==0:
+        print('Invalid choice!')
+def return_book(user):
+    book_in_hand(user)
+    id=int(input('Enter the id of the book that you want to return : '))
+    f=0
+    for i in lib:
+        if i['b_id']==id and id in user['books']:
+            f=1
+            user['books'].remove(id)
+            i['b_stock']+=1
+            print('Book returned successfully .')
+    if f==0:
+        print('Invalid choice!')
+def book_in_hand(user):
+    print(user['books'])
+def view_user(user):
+    print('ID :',user['id'])
+    print('NAME :',user['name'])
+    print('EMAIL :',user['email'])
+    print('USERNAME :',user['username'])
+    print('PHONE :',user['phone'])
+    print('BOOKS :',user['books'])
 users=[]
 lib=[]
 while True:
@@ -156,16 +190,27 @@ while True:
             while True:
                 print('''
 1.View Book
-2.Update profile
-3.Lent/Rent
-4.Logout
+2.View User
+3.Update profile
+4.Lent/Rent
+5.Return book
+6.Book in hand
+7.Logout
 ''')
                 ch=int(input('Enter your choice : '))
                 if ch==1:
                     view_book()
                 elif ch==2:
+                    view_user(user)
+                elif ch==3:
                     update_profile()
                 elif ch==4:
+                    rent_a_book(user)
+                elif ch==5:
+                    return_book(user)
+                elif ch==6:
+                    book_in_hand(user)
+                elif ch==7:
                     break
                 else:
                     print('Invalid choice !')
@@ -173,4 +218,3 @@ while True:
         break
     else:
         print('Invalid choice !')
-    
