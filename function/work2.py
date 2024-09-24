@@ -51,7 +51,31 @@
 
 
 '''             string using filter in lambda               '''
-l=['hello','welcome','kooi','kid','happy']
-def string(x):
-    return 'o' in x
-print(list(filter(string,l)))
+# l=['hello','welcome','kooi','kid','happy']
+# def string(x):
+#     return 'o' in x
+# print(list(filter(string,l)))
+
+'''             ['hello', 'welcome', 'kooi']                '''
+
+
+
+
+'''             map using lambda function                     '''
+# l=[1,2,3,4,5]
+# print(list(map(lambda x:x**2,l)))
+
+'''             [1, 4, 9, 16, 25]               '''
+
+
+
+
+
+
+'''             map using normal function                     '''
+l=[1,2,3,4,5]
+def num(x):
+    return x+10
+print(list(map(num,l)))
+
+'''             [11, 12, 13, 14, 15]               '''
