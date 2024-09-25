@@ -1,0 +1,11 @@
+# f=open('demo.txt','x')
+# f.write('Hello')
+# f.write('Python')
+# f.write('World')
+f=open('demo.txt','r')
+a=f.readlines()
+l=len(a)
+f.seek(0)
+for i in range(l):
+    b=f.readline().strip()
+    print(b[::-1])
