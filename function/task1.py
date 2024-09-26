@@ -123,7 +123,7 @@ def rent_a_book(user):
             i['b_stock']-=1
             print('Book rented successfully .')
     if f==0:
-        print('Invalid choice!')
+        print('Invalid ID!')
 def return_book(user):
     book_in_hand(user)
     id=int(input('Enter the id of the book that you want to return : '))
