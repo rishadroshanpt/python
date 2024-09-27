@@ -116,7 +116,5 @@ f=open('f1.txt','w')
 num=int(input('Enter a number : '))
 for i in range(1,11):
     pro=i*num
-    i=i
-    num=num
     f.write(f'{i} x {num} = {pro} \n')
 
